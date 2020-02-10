@@ -1,0 +1,129 @@
+
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee0de;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+
+$blue:    #1779ca;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #c11111;
+$orange:  #fd7e14;
+$yellow:  #f0c117;
+$green:   #28a745;
+$teal:    #20c997;
+$cyan:    #1192a8;
+
+$primary:       $blue;
+$secondary:     $gray-600;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-300;
+$dark:          $gray-700;
+
+$enable-caret:              true;
+$enable-rounded:            true;
+$enable-shadows:            true;
+$enable-gradients:          true;
+$enable-transitions:        true;
+$enable-hover-media-query:  false;
+$enable-grid-classes:       true;
+$enable-print-styles:       true;
+
+$spacer: .7rem;
+
+//$line-height-base:            1.37;
+
+$link-decoration:             none;
+
+//$border-radius:               0px;
+
+$input-btn-padding-y:      .2rem;
+$input-btn-padding-x:      .48rem;
+
+$font-family-sans-serif:      -apple-system, Verdana, "Liberaion Serif", "Helvetica Neue", Helvetica, Roboto, Arial, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+$btn-active-box-shadow:       none;
+$btn-box-shadow:              none;
+$btn-focus-box-shadow:        none;
+$btn-focus-width:             0px;
+$input-btn-focus-box-shadow:  none;
+
+$input-box-shadow:            none;
+$input-focus-box-shadow:      none;
+
+$custom-control-indicator-box-shadow:   none;
+$custom-select-box-shadow:          none;
+$custom-range-track-box-shadow:     none;
+
+$custom-range-thumb-box-shadow:              none;
+$custom-file-box-shadow:            none;
+
+$dropdown-link-active-color:        $white !important;
+$dropdown-link-hover-color:         darken($gray-900, 5%);
+$dropdown-link-hover-bg:            $gray-300;
+$dropdown-min-width:                16rem;
+
+
+$modal-show-transform:              none;
+$modal-transition:                  transform .3s ease-out;
+$modal-fade-transform:              scale(.7);
+$modal-backdrop-opacity:            .2;
+
+$navbar-padding-y:                  0.1rem;
+$navbar-padding-x:                  1rem;
+
+$nav-link-padding-y:    .61rem;
+$nav-link-padding-x:    .88rem;
+
+$navbar-nav-link-padding-y:         .99rem;
+$navbar-nav-link-padding-x:         .67rem;
+
+$navbar-dark-color:         $white;
+$navbar-dark-hover-color:   $white;
+$navbar-dark-active-color:  lighten($blue, 20%);
+$navbar-dark-color: rgba($white, .9);
+
+//$pagination-padding-y:              .35rem;
+//$pagination-padding-x:              .7rem;
+//$pagination-padding-y-sm:           .25rem;
+//$pagination-padding-x-sm:           .7rem;
+//$pagination-padding-y-lg:           .75rem;
+//$pagination-padding-x-lg:           1.5rem;
+//$pagination-line-height:            1.25;
+
+//$pagination-border-width:           1px;
+//$pagination-focus-box-shadow:       none;
+
+$table-dark-bg:               $gray-600;
+$table-accent-bg:             rgba($black, .03);
+$table-border-color:          $gray-200;
+$table-cell-padding:          .55rem;
+$table-cell-padding-sm:       .3rem 0.5rem;
+
+$toast-max-width: 350px;
+$toast-padding-x: 0.5rem;
+$toast-padding-y: 0.5rem;
+
+$toast-font-size: .875rem;
+$toast-background-color: $white;
+$toast-border-width: 1px;
+$toast-border-color: rgba(0, 0, 0, .1);
+$toast-border-radius: .25rem;
+$toast-box-shadow: 0 .25rem .75rem rgba($black, .1);
+
+$toast-header-color: $gray-800;
+$toast-header-background-color: lighten($green, 50%); //$white;
+$toast-header-border-color: rgba(0, 0, 0, .05);
+
