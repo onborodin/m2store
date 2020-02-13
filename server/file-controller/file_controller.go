@@ -1,5 +1,5 @@
 
-package storeController
+package fileController
 
 import (
     "errors"
@@ -44,7 +44,7 @@ type Page struct {
     Files           *[]File     `json:"files,omitempty"`
 }
 
-type StoreController struct {
+type Controller struct {
     config *config.Config
 }
 
@@ -80,7 +80,7 @@ func sendResult(context *gin.Context, result interface{}) {
     context.JSON(http.StatusOK, response)
 }
 
-func (this *StoreController) ValidateFilePath(bucketName, fileName string) (string, error) {
+func (this *Controller) ValidateFilePath(bucketName, fileName string) (string, error) {
     storeDir, _ := this.config.GetStoreDir()
 
     directoryPath := filepath.Clean(filepath.Join(storeDir, bucketName))
@@ -95,7 +95,7 @@ func (this *StoreController) ValidateFilePath(bucketName, fileName string) (stri
     return filePath, nil
 }
 
-func (this *StoreController) ValidateBucketPath(bucketName string) (string, error) {
+func (this *Controller) ValidateBucketPath(bucketName string) (string, error) {
 
     storeDir, _ := this.config.GetStoreDir()
 
@@ -106,7 +106,7 @@ func (this *StoreController) ValidateBucketPath(bucketName string) (string, erro
     return directoryPath, nil
 }
 
-func (this *StoreController) PageList(context *gin.Context) {
+func (this *Controller) PageList(context *gin.Context) {
 
     /* Bind form */
     var page Page
@@ -194,7 +194,7 @@ type listForm struct {
     Pattern string  `form:"pattern" json:"pattern"`
 }
 
-func (this *StoreController) List(context *gin.Context) {
+func (this *Controller) List(context *gin.Context) {
 
     /* Bind form */
     var form listForm
@@ -266,7 +266,7 @@ type putForm struct {
     File *multipart.FileHeader  `form:"file"     binding:"required"`
 }
 
-func (this *StoreController) Put(context *gin.Context) {
+func (this *Controller) Put(context *gin.Context) {
 
     /* Bind form */
     form := putForm{}
@@ -329,7 +329,7 @@ type getForm struct {
     BucketName  string  `form:"bucket"   json:"bucket"`
 }
 
-func (this *StoreController) Get(context *gin.Context) {
+func (this *Controller) Get(context *gin.Context) {
 
     form := getForm{}
     if err := context.ShouldBind(&form); err != nil {
@@ -356,7 +356,7 @@ func (this *StoreController) Get(context *gin.Context) {
     context.FileAttachment(filePath, filepath.Base(filePath))
 }
 
-func (this *StoreController) Down(context *gin.Context) {
+func (this *Controller) Down(context *gin.Context) {
     paramPath := context.Param("path")
 
     /* Validate file name */
@@ -381,7 +381,7 @@ type dropForm struct {
     BucketName  string  `form:"bucket"   json:"bucket"`
 }
 
-func (this *StoreController) Drop(context *gin.Context) {
+func (this *Controller) Drop(context *gin.Context) {
 
     form := dropForm{}
     if err := context.ShouldBind(&form); err != nil {
@@ -425,12 +425,12 @@ func (this *StoreController) Drop(context *gin.Context) {
 }
 
 
-func (this *StoreController) Hello(context *gin.Context) {
+func (this *Controller) Hello(context *gin.Context) {
     sendMessage(context, "hello")
 }
 
-func New(config *config.Config) *StoreController {
-    return &StoreController{
+func New(config *config.Config) *Controller {
+    return &Controller{
         config: config,
     }
 }

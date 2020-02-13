@@ -33,7 +33,7 @@ EXTRA_s2srv_SOURCES = \
 	daemon/daemon.go \
 	server/server.go \
 	server/bucket-controller/bucket_controller.go \
-	server/store-controller/store_controller.go \
+	server/file-controller/file_controller.go \
 	server/user-controller/user_controller.go \
 	server/user-model/user_model.go \
 	tools/file.go
