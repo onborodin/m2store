@@ -26,7 +26,7 @@ const (
    listURI  string = "api/v1/file/list"
    putURI   string = "api/v1/file/put"
    getURI   string = "api/v1/file/get"
-   dropURI  string = "api/v1/file/drop"
+   deleteURI  string = "api/v1/file/delete"
 )
 
 type ListForm struct {
@@ -183,7 +183,7 @@ type DropForm struct {
 func (this *Client) Drop(hostname, username, password, bucket, filename string) (string, error) {
 
     var err error
-    url := fmt.Sprintf("https://%s:%s@%s/%s", username, password, hostname,  dropURI)
+    url := fmt.Sprintf("https://%s:%s@%s/%s", username, password, hostname,  deleteURI)
 
     form := DropForm{
         Bucket: bucket,

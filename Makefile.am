@@ -35,6 +35,7 @@ EXTRA_s2srv_SOURCES = \
 	server/bucket-controller/bucket_controller.go \
 	server/file-controller/file_controller.go \
 	server/user-controller/user_controller.go \
+	server/status-controller/status_controller.go \
 	server/user-model/user_model.go \
 	tools/file.go
 

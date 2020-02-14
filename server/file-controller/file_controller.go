@@ -376,14 +376,14 @@ func (this *Controller) Down(context *gin.Context) {
     context.FileAttachment(filePath, filepath.Base(filePath))
 }
 
-type dropForm struct {
+type deleteForm struct {
     FileName    string  `form:"filename" json:"filename" binding:"required" `
     BucketName  string  `form:"bucket"   json:"bucket"`
 }
 
-func (this *Controller) Drop(context *gin.Context) {
+func (this *Controller) Delete(context *gin.Context) {
 
-    form := dropForm{}
+    form := deleteForm{}
     if err := context.ShouldBind(&form); err != nil {
         sendError(context, err)
         return

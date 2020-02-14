@@ -39,7 +39,7 @@ type Page struct {
     Buckets         *[]Bucket   `json:"buckets,omitempty"`
 }
 
-type BucketController struct {
+type Controller struct {
     config *config.Config
 }
 
@@ -75,7 +75,7 @@ func sendResult(context *gin.Context, result interface{}) {
     context.JSON(http.StatusOK, responce)
 }
 
-func (this *BucketController) PageList(context *gin.Context) {
+func (this *Controller) PageList(context *gin.Context) {
 
     var page Page
     _ = context.Bind(&page)
@@ -143,7 +143,7 @@ func (this *BucketController) PageList(context *gin.Context) {
 }
 
 
-func (this *BucketController) List(context *gin.Context) {
+func (this *Controller) List(context *gin.Context) {
 
     storeDir, _ := this.config.GetStoreDir()
 
@@ -183,13 +183,13 @@ func (this *BucketController) List(context *gin.Context) {
     sendResult(context, list)
 }
 
-func (this *BucketController) Hello(context *gin.Context) {
+func (this *Controller) Hello(context *gin.Context) {
     sendMessage(context, "hello")
 }
 
 
-func New(config *config.Config) *BucketController {
-    return &BucketController{
+func New(config *config.Config) *Controller {
+    return &Controller{
         config: config,
     }
 }

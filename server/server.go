@@ -38,6 +38,8 @@ import (
 
     "store/server/file-controller"
     "store/server/bucket-controller"
+    "store/server/status-controller"
+
 
     "store/daemon"
     "store/config"
@@ -291,16 +293,17 @@ func (this *Server) Run() error {
     botGroup.POST("/bucket/list", bucketController.List)
     botGroup.POST("/bucket/pagelist", bucketController.PageList)
 
-    botGroup.GET("/bucket/hello", bucketController.Hello)
-
     fileController := fileController.New(this.Config)
     botGroup.POST("/file/list", fileController.List)
     botGroup.POST("/file/pagelist", fileController.PageList)
     botGroup.POST("/file/put", fileController.Put)
     botGroup.POST("/file/get", fileController.Get)
-    botGroup.POST("/file/drop", fileController.Drop)
-    botGroup.GET("/file/hello", fileController.Hello)
+    botGroup.POST("/file/delete", fileController.Delete)
     botGroup.GET("/file/down/*path", fileController.Down)
+
+    statusController := statusController.New(this.Config)
+    botGroup.GET("/status/hello", statusController.Hello)
+    botGroup.GET("/status/disk", statusController.Disk)
 
     /* No route handler */
     router.NoRoute(this.NoRoute)

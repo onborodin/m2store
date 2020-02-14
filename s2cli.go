@@ -32,9 +32,9 @@ func main() {
         optGetBucket := getCommands.String("bucket", "", "bucket name")
         optGetFileName := getCommands.String("file", "", "file name")
 
-    dropCommands := flag.NewFlagSet("drop", flag.ExitOnError)
-        optDropBucket := dropCommands.String("bucket", "", "bucket name")
-        optDropFileName := dropCommands.String("file", "", "file name")
+    deleteCommands := flag.NewFlagSet("delete", flag.ExitOnError)
+        optDropBucket := deleteCommands.String("bucket", "", "bucket name")
+        optDropFileName := deleteCommands.String("file", "", "file name")
 
     listBucketsCommands := flag.NewFlagSet("listb", flag.ExitOnError)
 
@@ -43,7 +43,7 @@ func main() {
         fmt.Printf("usage: %s [global option] command [command option]\n", exeName)
 
         fmt.Println("")
-        fmt.Println("commands: list, put, get, drop, listb")
+        fmt.Println("commands: list, put, get, delete, listb")
         fmt.Println("")
 
         fmt.Println("global option:")
@@ -62,8 +62,8 @@ func main() {
         getCommands.PrintDefaults()
         fmt.Println("")
 
-        fmt.Println("drop option:")
-        dropCommands.PrintDefaults()
+        fmt.Println("delete option:")
+        deleteCommands.PrintDefaults()
         fmt.Println("")
 
         fmt.Println("list option:")
@@ -126,9 +126,9 @@ func main() {
             os.Exit(1)
         }
         fmt.Println(res)
-    } else if strings.HasPrefix(command, "drop") {
+    } else if strings.HasPrefix(command, "delete") {
 
-        dropCommands.Parse(localArgs)
+        deleteCommands.Parse(localArgs)
         client := client.New()
         res, err := client.Drop(*optNode, *optUserName, *optPassword, *optDropBucket, *optDropFileName)
         if err != nil {
